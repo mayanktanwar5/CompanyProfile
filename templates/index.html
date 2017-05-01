@@ -19,37 +19,37 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="../images/logo.png" alt=""></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Mobile</a></li>
-                        <li><a href="#">Big Data </a></li>
-                        <li><a href="#">IOT</a></li>
+                        <li><a href="bigdata.html">Big Data </a></li>
+                        <li><a href="iot.html">IOT</a></li>
                         <!--<li role="separator" class="divider"></li>-->
                         <!--<li><a href="#">Separated link</a></li>-->
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Management</a></li>
-                        <li><a href="#">Code of Conduct</a></li>
+                        <li><a href="management.html">Management</a></li>
+                        <li><a href="">Code of Conduct</a></li>
                         <li><a href="#">Business</a></li>
-                        <li><a href="#">Locations</a></li>
+                        <li><a href="googlemaps.html">Locations</a></li>
                         <li><a href="#">Contacts</a></li>
                         <!--<li role="separator" class="divider"></li>-->
                         <!--<li><a href="#">Separated link</a></li>-->
                     </ul>
                 </li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="Blogpage.html">Blog</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -62,19 +62,24 @@
                 <img ng-if="slide.type=='image' " ng-src="{{slide.src}}" style="margin:auto;">
                 <!--<video ng-if="slide.type=='video'" src="{{slide.src | trustUrl}}" style="margin:auto;">-->
                 <!--</video>-->
-                <!--<iframe ng-if="slide.type=='video'"  ng-src="{{slide.src}}" frameborder="0" allowfullscreen controls></iframe>-->
+                <iframe ng-if="slide.type=='video'"  src="{{trust(slide.src)}}" frameborder="0" allowfullscreen controls></iframe>
 
             </div>
         </div>
     </div>
 <section id="products" class="sect">
     <div ng-repeat="product in products track by $index" class="content-card col-md-4 col-lg-4 col-sm-12">
-
         <div class="content-img">
             <img ng-src="{{product.src}}" alt="">
         </div>
-        <div class="content-text text-center col-md-4 col-lg-4 col-sm-12">
-            {{product.title}}
+        <div class="content-text text-center ">
+           <div class="content-title">
+               <h2>{{product.title}}</h2>
+           </div>
+            <div class="content-desc">
+                {{product.data}}
+            </div>
+            <a href="" class="btn btn-large custom-btn">Know More</a>
         </div>
     </div>
 </section>
@@ -82,15 +87,31 @@
 
 </div>
 
-<footer> </footer>
 
+    <!--<div >-->
+<div class="twitter">
+    <div ng-repeat="tweet in tweets track by $index"   ng-init ="z=$index" ng-class="{'border-right':z==0||z==1}" class="twitter-card col-md-4">
 
+        <div  class="twitter-logo col-md-2">
+            <i class="fa twitter-color fa-twitter"></i>
+        </div>
+        <div class="tweet col-md-10">
+            <div>{{tweet.name}}</div>
+           <div> {{tweet.data}}</div>
+        </div>
+    </div>
+</div>
+
+    <!--</div>-->
+<footer>
+    copyright sprouts.inc 2017 Handcrafted with <i class=" red fa fa-heart"></i>
+</footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"></script>
-<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
 <script src="../app.js"></script>
 </body>
 </html>
